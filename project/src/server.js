@@ -14,7 +14,7 @@ server.use((err, req, res, next) => {
     const status = res.statusCode || 500;
     const message = err.message || err;
 
-    res.status(status).send({
+    res.status(status).json({
         error: true,
         message: message
     })
