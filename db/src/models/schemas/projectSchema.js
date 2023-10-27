@@ -39,11 +39,11 @@ projectSchema.statics.insert = async function(project){
 }
 
 projectSchema.statics.update = async function(id, project){
-    return await this.findByIdAndUpdate(id, project, {new:true})
+    return await this.findByIdAndUpdate(id, project)
 }
 
-projectSchema.statics.remove = async function(id){
-    return await this.findByIdAndDelete(id);
+projectSchema.statics.delete = async function(id){
+    return await this.findByIdAndRemove(id);
 }
 
 module.exports = projectSchema;

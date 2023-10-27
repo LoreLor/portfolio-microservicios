@@ -7,5 +7,6 @@ router.get('/:model', controllers.listController);
 router.get('/:model/:id', controllers.getByIdController)
 router.post('/:model', middleware.modelsValidation, controllers.insertController);
 router.put('/:model/:id', middleware.modelsValidation, controllers.updateController);
+router.delete('/:model/:id', controllers.deleteController);
 
 module.exports = router;

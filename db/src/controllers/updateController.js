@@ -6,5 +6,5 @@ module.exports = async(req, res ) => {
     const item = req.body;
 
     const result = await allModels[model].update(id, item);
-    response(res, 201, result);
+    response(res, 204, result);
 }
