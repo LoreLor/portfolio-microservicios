@@ -1,7 +1,11 @@
 const { Schema } = require('mongoose');
 
 const projectSchema = new Schema ({
-    
+    _id: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     name: {
         type: String,
         require: true,
@@ -30,7 +34,7 @@ projectSchema.statics.list = async function(){
     return await this.find()
 }
 
-projectSchema.statics.get = async function(id){
+projectSchema.statics.getById = async function(id){
     return await this.findById(id)
 }
 
