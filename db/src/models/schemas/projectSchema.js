@@ -1,11 +1,7 @@
 const { Schema } = require('mongoose');
 
 const projectSchema = new Schema ({
-    _id: {
-        type: String,
-        required: true,
-        unique: true,
-    },
+    
     name: {
         type: String,
         require: true,
@@ -46,7 +42,7 @@ projectSchema.statics.update = async function(id, project){
     return await this.findByIdAndUpdate(id, project, {new:true})
 }
 
-projectSchema.statics.delete = async function(id){
+projectSchema.statics.remove = async function(id){
     return await this.findByIdAndDelete(id);
 }
 
