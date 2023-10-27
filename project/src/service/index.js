@@ -9,12 +9,17 @@ module.exports = {
         const projectById = await axios.get(`http://localhost:8004/Project/${id}`);
         return projectById.data;
     },
-    create: async(project) => {
+    insert: async(project) => {
         const newProject = await axios.post('http://localhost:8004/Project', project);
         return newProject.data;
     },
     update: async(id, project) => {
         const newProject = await axios.put(`http://localhost:8004/Project/${id}`, project);
         return newProject.data;   
+    },
+    delete: async(id) => {
+        const deletedProject = await axios.delete(`http://localhost:8004/Project/${id}`);
+        return deletedProject.data;
     }
+
 }
