@@ -7,5 +7,5 @@ module.exports = async(req, res) => {
     const { project } = req.body;
 
     const updatedProject = await Project.update(id, project);
-    response(res, 201, updatedProject)
+    response(res, 204, updatedProject)
 };
