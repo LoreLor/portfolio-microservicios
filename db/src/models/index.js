@@ -8,6 +8,7 @@ const conn = mongoose.createConnection(MONGO_URI);
 // me creo las entidades o modelos
 const Project = conn.model("Project", require('./schemas/projectSchema'));
 
+
 module.exports = {
     Project,
 }
