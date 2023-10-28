@@ -6,4 +6,5 @@ module.exports = async (req, res, next) => {
     if (!first_name || !last_name || !email || !password) {
         throw new ClientError('Any input is empty', 400);
     }
+    next();
 };
