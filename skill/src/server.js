@@ -8,11 +8,11 @@ server.use(express.json());
 server.use(morgan('dev'));
 server.use(cors());
 
-//server.use('/skills', require('./routes'));
+server.use('/skills', require('./routes'));
 
 server.use((err, req, res, next) => {
     const status = res.statusCode || 500;
-    const message = res.message || err;
+    const message = err.message || err;
 
     res.status(status).send({
         error: true,

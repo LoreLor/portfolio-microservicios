@@ -1,5 +1,5 @@
 const Skills = require('../service');
-const { response } = require('../response');
+const { response } = require('../utils');
 
 module.exports = async (req, res) => {
     const { id } = req.params;
