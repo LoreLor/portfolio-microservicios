@@ -6,4 +6,4 @@ module.exports = {
     updateProject: catchedAsync(require('./updateProject')),
     createProject: catchedAsync(require('./createProject')),
     deleteProject: catchedAsync(require('./deleteProject'))
-}
+};

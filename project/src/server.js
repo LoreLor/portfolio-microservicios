@@ -16,8 +16,8 @@ server.use((err, req, res, next) => {
 
     res.status(status).json({
         error: true,
-        message: message
-    })
+        message
+    });
 });
 
 module.exports = server;
