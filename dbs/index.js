@@ -1,5 +1,6 @@
+const { PORT } = require('./src/config/envs');
 const server = require('./src/server');
 
-server.listen(8004, () => {
-    console.log('DATABASE run on port: 8004')
+server.listen(PORT, () => {
+    console.log(`DATABASE run on port: ${PORT}`)
 });
