@@ -1,4 +1,5 @@
-const { Schema } = require('mongoose');
+const { Schema } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
     first_name: {
@@ -21,27 +22,38 @@ const userSchema = new Schema({
     password: {
         type: String,
         require: true,
-    }
+    },
 });
 
-userSchema.statics.list = async function(){
+userSchema.statics.list = async function () {
     return await this.find();
 };
 
-userSchema.statics.getById = async function(id){
-    return await this.findById(id)
+userSchema.statics.getById = async function (id) {
+    return await this.findById(id);
 };
 
-userSchema.statics.insert = async function(user){
+userSchema.statics.insert = async function (user) {
     return await this.create(user);
-}
+};
 
-userSchema.statics.update = async function(id, user){
+userSchema.statics.update = async function (id, user) {
     return await this.findByIdAndUpdate(id, user);
 };
 
-userSchema.statics.delete = async function(id) {
+userSchema.statics.delete = async function (id) {
     return await this.findByIdAndRemove(id);
 };
+
+userSchema.statics.getByEmail = async function (email) {
+    return await this.findOne({
+        where: {email: email}
+    })
+};
+
+userSchema.statics.signin = async function (email, password) {
+    return await this.findOne({ email: email });
+}
+    
 
 module.exports = userSchema;

@@ -6,4 +6,5 @@ module.exports = {
     getByIdController: catchedAsync(require('./getByIdController')),
     updateController: catchedAsync(require('./updateController')),
     deleteController: catchedAsync(require('./deleteController')),
+    signinController: catchedAsync(require('./signinController')),
 }
