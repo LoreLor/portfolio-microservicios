@@ -16,7 +16,7 @@ services:
         - "8001:8001"
 
   skills:
-      conatiner_name: skills
+      container_name: skills
       restart: always
       build: ./skill
       ports:
