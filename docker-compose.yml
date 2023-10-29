@@ -29,9 +29,9 @@ services:
       ports:
         - "8003:8003"
 
-  db:
-      container_name: db
+  dbs:
+      container_name: dbs
       restart: always
-      build: ./db
+      build: ./dbs
       ports:
         - "8004:8004"
