@@ -1,4 +1,5 @@
-const { Schema } = require('mongoose');
+const { Schema } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
     first_name: {
@@ -21,27 +22,47 @@ const userSchema = new Schema({
     password: {
         type: String,
         require: true,
-    }
+    },
 });
 
-userSchema.statics.list = async function(){
+userSchema.statics.list = async function () {
     return await this.find();
 };
 
-userSchema.statics.getById = async function(id){
-    return await this.findById(id)
+userSchema.statics.getById = async function (id) {
+    return await this.findById(id);
 };
 
-userSchema.statics.insert = async function(user){
+userSchema.statics.insert = async function (user) {
     return await this.create(user);
-}
+};
 
-userSchema.statics.update = async function(id, user){
+userSchema.statics.update = async function (id, user) {
     return await this.findByIdAndUpdate(id, user);
 };
 
-userSchema.statics.delete = async function(id) {
+userSchema.statics.delete = async function (id) {
     return await this.findByIdAndRemove(id);
+};
+
+userSchema.statics.signin = async function (email, password) {
+    const user = await this.findOne({ email: email });
+
+    if (!user) {
+        // si email no existe
+        return null;
+    }
+
+    // Comprueba la contraseña con bcrypt
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (isPasswordValid) {
+        // Inicio de sesión exitoso, retorna el usuario.
+        return user;
+    }
+
+    // La contraseña no es válida.
+    return null;
 };
 
 module.exports = userSchema;
