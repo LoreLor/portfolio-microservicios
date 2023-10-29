@@ -13,6 +13,12 @@ module.exports = {
         const user = await axios.get(`http://localhost:8004/User/${id}`);
         return user.data;
     },
+
+    getByEmail: async (email) => {
+        const userEmail = await axios.get('http://localhost:8004/User', email);
+        return userEmail.data;
+    },
+
     update: async (id, user) => {
         const updateUser = await axios.put(`http://localhost:8004/User/${id}`, user);
         return updateUser.data;
@@ -20,5 +26,10 @@ module.exports = {
     delete: async (id) => {
         const deleteUser = await axios.delete(`http://localhost:8004/User/${id}`);
         return deleteUser.data;
+    },
+
+    signin: async (email, password) => {
+        const sign = await axios.post('http://localhost:8004/User/signin', { email, password });
+        return sign.data;
     }
 };
