@@ -2,39 +2,38 @@ version: '3'
 
 services: 
 
-  dbs:
-      container_name: dbs
-      restart: always
-      build: ./dbs
-      ports:
-        - "8004:8004"
+    gateway-portfolio:
+        container_name: gateway-portfolio
+        restart: always
+        build: ./gateway-portfolio
+        ports:
+          - "8000:8000"
+      
+    projects:
+        container_name: projects
+        restart: always
+        build: ./project
+        ports:
+          - "8001:8001"
 
-  gateway-portfolio:
-      container_name: gateway-portfolio
-      restart: always
-      build: ./gateway-portfolio
-      ports:
-        - "8000:8000"
-    
-  projects:
-      container_name: projects
-      restart: always
-      build: ./project
-      ports:
-        - "8001:8001"
+    skills:
+        container_name: skills
+        restart: always
+        build: ./skill
+        ports:
+          - "8002:8002"
 
-  skills:
-      container_name: skills
-      restart: always
-      build: ./skill
-      ports:
-        - "8002:8002"
+    user:
+        container_name: user
+        restart: always
+        build: ./user
+        ports:
+          - "8003:8003"
 
-  user:
-      container_name: user
-      restart: always
-      build: ./user
-      ports:
-        - "8003:8003"
-
+    dbs:
+        container_name: dbs
+        restart: always
+        build: ./dbs
+        ports:
+          - "8004:8004"
   
