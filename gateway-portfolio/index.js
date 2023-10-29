@@ -1,11 +1,14 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { PORT } = require('./config/envs');
 
 const app = express();
 
+app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors());
 
 app.use('/projects', createProxyMiddleware({
     // target: 'http://localhost:8001'
