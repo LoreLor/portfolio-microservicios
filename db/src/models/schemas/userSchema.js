@@ -45,24 +45,15 @@ userSchema.statics.delete = async function (id) {
     return await this.findByIdAndRemove(id);
 };
 
-userSchema.statics.signin = async function (email, password) {
-    const user = await this.findOne({ email: email });
-
-    if (!user) {
-        // si email no existe
-        return null;
-    }
-
-    // Comprueba la contraseña con bcrypt
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-
-    if (isPasswordValid) {
-        // Inicio de sesión exitoso, retorna el usuario.
-        return user;
-    }
-
-    // La contraseña no es válida.
-    return null;
+userSchema.statics.getByEmail = async function (email) {
+    return await this.findOne({
+        where: {email: email}
+    })
 };
+
+userSchema.statics.signin = async function (email, password) {
+    return await this.findOne({ email: email });
+}
+    
 
 module.exports = userSchema;

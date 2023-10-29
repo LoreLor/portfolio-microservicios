@@ -6,5 +6,5 @@ module.exports = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await allModels[model].signin(email, password);
-    response(res, 200, `Login is successful`);
+    response(res, 200, {email, password});
 }
