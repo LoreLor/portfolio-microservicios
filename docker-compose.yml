@@ -1,6 +1,13 @@
 version: '3'
 
 services: 
+  dbs:
+      container_name: dbs
+      restart: always
+      build: ./dbs
+      ports:
+        - "8004:8004"
+        
   gateway-portfolio:
       container_name: gateway-portfolio
       restart: always
@@ -29,9 +36,4 @@ services:
       ports:
         - "8003:8003"
 
-  dbs:
-      container_name: dbs
-      restart: always
-      build: ./dbs
-      ports:
-        - "8004:8004"
+  
