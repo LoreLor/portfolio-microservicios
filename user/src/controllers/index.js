@@ -5,5 +5,6 @@ module.exports = {
     allUsers: catchAsync(require('./allUsers')),
     userById: catchAsync(require('./userById')),
     userUpdate: catchAsync(require('./updateUser')),
-    userDelete: catchAsync(require('./deleteUser'))
+    userDelete: catchAsync(require('./deleteUser')),
+    signin: catchAsync(require('./signin'))
 };
