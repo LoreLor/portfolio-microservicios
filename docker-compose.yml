@@ -3,7 +3,7 @@ services:
   gateway-portfolio: 
       container_name: gateway-portfolio
       restart: always
-      build: ./gateway-porfolio
+      build: ./gateway-portfolio
       ports:
         - "8000:8000"
 
