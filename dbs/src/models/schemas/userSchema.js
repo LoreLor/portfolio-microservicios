@@ -52,7 +52,21 @@ userSchema.statics.getByEmail = async function (email) {
 };
 
 userSchema.statics.signin = async function (email, password) {
-    return await this.findOne({ email: email });
+    const user = await this.findOne({ email: email });
+    if (!user) {
+        // El usuario no existe
+        return false;
+    }
+
+    // Verificar la contraseña
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (isPasswordValid) {
+        // La contraseña es válida, puedes autenticar al usuario
+        return user;
+    } else {
+        // La contraseña no es válida
+        return false;
+    }
 }
     
 
