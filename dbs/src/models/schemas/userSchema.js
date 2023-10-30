@@ -51,8 +51,12 @@ userSchema.statics.getByEmail = async function (email) {
     })
 };
 
-userSchema.statics.signin = async function (email, password) {
-    const user = await this.findOne({ email: email });
+userSchema.statics.signin = async function (data) {
+    const user = await this.findOne({
+        where: {
+            email: data.email
+        }
+    });
     if (!user) {
         // El usuario no existe
         return false;

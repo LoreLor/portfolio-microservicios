@@ -10,14 +10,14 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 
-app.use('/projects', createProxyMiddleware({
+app.use('/project', createProxyMiddleware({
     // target: 'http://localhost:8001'
-    target: 'http://projects:8001',
+    target: 'http://project:8001',
     changeOrigin: true
 }));
 
-app.use('/skills', createProxyMiddleware({
-    target: 'http://skills:8002',
+app.use('/skill', createProxyMiddleware({
+    target: 'http://skill:8002',
     changeOrigin: true
 }));
 

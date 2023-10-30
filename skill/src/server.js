@@ -8,7 +8,7 @@ server.use(express.json());
 server.use(morgan('dev'));
 server.use(cors());
 
-server.use('/skills', require('./routes'));
+server.use('/skill', require('./routes'));
 
 server.use((err, req, res, next) => {
     const status = res.statusCode || 500;
