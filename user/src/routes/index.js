@@ -10,6 +10,6 @@ router.post('/', middleware.userValidation, controllers.userCreate);
 router.get('/:id', controllers.userById);
 router.put('/:id', middleware.userValidation, controllers.userUpdate);
 router.delete('/:id', controllers.userDelete);
-router.post('/signin', middleware.signinValidation, controllers.signin);
+router.post('/signin', controllers.signin);
 
 module.exports = router;

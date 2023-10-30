@@ -28,8 +28,8 @@ module.exports = {
         return deleteUser.data;
     },
 
-    signin: async (email, password) => {
-        const sign = await axios.post('http://dbs:8004/User/signin', { email, password });
+    signin: async (data) => {
+        const sign = await axios.post('http://dbs:8004/User/signin', data);
         return sign.data;
     }
 };
