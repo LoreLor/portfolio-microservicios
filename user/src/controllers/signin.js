@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.getByEmail(email);
+    console.log('user :>> ', user.data);
 
     if (user) {
         if (bcrypt.compare(password, user.data[0].password)) {
