@@ -1,0 +1,36 @@
+version: '3'
+services:
+  gateway-portfolio: 
+      container_name: gateway-portfolio
+      restart: always
+      build: ./gateway-porfolio
+      ports:
+        - "8000:8000"
+
+  project: 
+      container_name: project
+      restart: always
+      build: ./project
+      ports: 
+        - "8001:8001"
+
+  skill: 
+      container_name: skill
+      restart: always
+      build: ./skill
+      ports:
+        - "8002:8002"
+
+  user:
+      container_name: user
+      restart: always
+      build: ./user
+      ports:
+        - "8003:8003"
+
+  dbs:
+      container_name: dbs
+      restart: always
+      build: ./dbs
+      ports:
+        - "8004:8004"
