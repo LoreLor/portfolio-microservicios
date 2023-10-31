@@ -6,7 +6,7 @@ const server = express();
 
 server.use(express.json());
 server.use(morgan('dev'));
-const allowedOrigins = ['https://lorena-de-armas.netlify.app'];
+const allowedOrigins = ['https://lorena-de-armas.netlify.app', '*'];
 const corsOptions = {
     origin: (origin, callback) => {
         if (allowedOrigins.includes(origin) || !origin) {
