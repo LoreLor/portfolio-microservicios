@@ -6,17 +6,7 @@ const server = express();
 
 server.use(express.json());
 server.use(morgan('dev'));
-const allowedOrigins = ['https://lorena-de-armas.netlify.app', '*'];
-const corsOptions = {
-    origin: (origin, callback) => {
-        if (allowedOrigins.includes(origin) || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Acceso no permitido por CORS'));
-        }
-    }
-};
-server.use(cors(corsOptions));
+server.use(cors());
 
 server.use('/user', require('./routes'));
 
