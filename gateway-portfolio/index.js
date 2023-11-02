@@ -4,7 +4,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT_GATEWAY = process.env.PORT_GATEWAY;
 
 app.use(morgan('dev'));
 app.use('/project', createProxyMiddleware({
@@ -23,6 +23,6 @@ app.use('/user', createProxyMiddleware({
     changeOrigin: true
 }));
 
-app.listen(PORT, () => {
-    console.log(`Gateway run on port: ${PORT}`);
+app.listen(PORT_GATEWAY, () => {
+    console.log(`Gateway run on port: ${PORT_GATEWAY}`);
 });
