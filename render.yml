@@ -1,0 +1,45 @@
+services:
+  - name: gateway-portfolio
+    env: prod
+    buildCommand: docker-compose build
+    startCommand: docker-compose up -d
+    dockerfilePath: ./gateway-portfolio/Dockerfile
+    workDir: /app
+    healthCheckPath: /health
+    healthCheckPort: 8000
+
+  - name: project
+    env: prod
+    buildCommand: docker-compose build
+    startCommand: docker-compose up -d
+    dockerfilePath: ./project/Dockerfile
+    workDir: /app
+    healthCheckPath: /health
+    healthCheckPort: 8001
+
+  - name: skill
+    env: prod
+    buildCommand: docker-compose build
+    startCommand: docker-compose up -d
+    dockerfilePath: ./skill/Dockerfile
+    workDir: /app
+    healthCheckPath: /health
+    healthCheckPort: 8002
+
+  - name: user
+    env: prod
+    buildCommand: docker-compose build
+    startCommand: docker-compose up -d
+    dockerfilePath: ./user/Dockerfile
+    workDir: /app
+    healthCheckPath: /health
+    healthCheckPort: 8003
+
+  - name: dbs
+    env: prod
+    buildCommand: docker-compose build
+    startCommand: docker-compose up -d
+    dockerfilePath: ./dbs/Dockerfile
+    workDir: /app
+    healthCheckPath: /health
+    healthCheckPort: 8004
