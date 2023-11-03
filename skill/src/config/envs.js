@@ -1,5 +1,5 @@
 require('dotenv').config();
 
 module.exports = {
-    PORT: process.env.PORT_SKILL
+    PORT: process.env.PORT
 };
